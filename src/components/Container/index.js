@@ -14,35 +14,44 @@ export default class TodoContainer extends PureComponent {
   }
 
   this.handleInputChange = this.handleInputChange.bind(this)
-  //this.addItem = this.addItem.bind(this)
+  this.addItem = this.addItem.bind(this)
  }
 
- handleInputChange(event) {
+ handleInputChange = event => {
   this.setState({
    inputValue: event.target.value
   })
  }
 
- //  addItem = () => {
- //   this.setState(state => {
- //    const todoData = state.todoData.concat({
- //     text: this.state.inputValue,
- //     done: false
- //    })
+ addItem = () => {
+  this.setState(state => {
+   const todoData = state.todoData.concat({
+    text: this.state.inputValue,
+    done: false
+   })
 
- //    return {
- //     inputValue: '',
- //     todoData
- //    }
- //   })
- //  }
+   return {
+    inputValue: '',
+    todoData
+   }
+  })
+ }
+
+ itemStatus = index => {
+  const itemIndex = index
+  this.state.todoData.forEach((item, index) => {
+   if (index === itemIndex) {
+    item.done = !item.done ? true : false
+   }
+  })
+ }
 
  render() {
   return (
    <Todo>
     <Input value={this.state.inputValue} onChange={this.handleInputChange} />
     <AddButton onClick={this.addItem}>Add</AddButton>
-    <List data={this.state.todoData} />
+    <List data={this.state.todoData} itemStatus={this.itemStatus} />
    </Todo>
   )
  }
