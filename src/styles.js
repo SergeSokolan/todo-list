@@ -1,12 +1,17 @@
-import styled from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-export const Todo = styled.div`
- margin: 40px;
-`
+export const GlobalStyles = createGlobalStyle`
+    body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
 
-export const Input = styled.input.attrs({ type: 'text' })``
-export const AddButton = styled.button.attrs({ type: 'button' })``
-export const List = styled.ul``
-export const ListItem = styled.li`
- ${props => (props.isDone ? 'text-decoration: line-through;' : '')}
-`
+    code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+
+}`
