@@ -1,22 +1,20 @@
 import styled from 'styled-components'
 
 export const ListContainer = styled.ul`
- list-style: none;
+ list-style: decimal;
 `
 
 const active = `
 text-decoration: line-through;
-color: gray;
+color: green;
 `
-const itemDefault = `
+
+export const ListItem = styled.li`
  cursor: pointer;
  &:hover {
   color: blue;
  }
-`
-
-export const ListItem = styled.li`
- ${props => (props.isDone ? active : itemDefault)}
+ ${props => (props.isDone ? active : '')}
 `
 
 export const Text = styled.span``
