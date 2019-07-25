@@ -41,7 +41,6 @@ export default class TodoContainer extends PureComponent {
   const itemIndex = index
   this.state.todoData.forEach((item, index) => {
    if (index === itemIndex) {
-    item.done = !item.done ? true : false
    }
   })
  }
